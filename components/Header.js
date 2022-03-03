@@ -8,9 +8,9 @@ function Header() {
    
     
     return (
-    <div>
+    <div className='sticky top-0 z-50 shadow-md'>
          {/* Top Nav */}
-        <div className='flex  flex-grow items-center bg-amazon_blue py-2 w-full overflow-x-hidden'>
+        <div className='flex flex-grow items-center bg-amazon_blue py-2 w-full overflow-x-hidden'>
                       {/* Logo */}
               <div className='relative w-40  h-10 flex-shrink-0 mx-2 mt-3 cursor-pointer flex flex-grow sm:flex-grow-0'>
                   <Image alt='' src="https://links.papareact.com/f90" layout='fill' objectFit='contain'  />
