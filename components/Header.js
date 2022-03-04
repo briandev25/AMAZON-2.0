@@ -2,10 +2,10 @@ import Image from 'next/image'
 import React from 'react'
 import ThemeChangeButton from './ThemeChangeButton'
 import { MenuIcon,SearchIcon,ShoppingCartIcon,ChevronDownIcon } from '@heroicons/react/outline'
-
+import { signIn,signOut,useSession} from 'next-auth/react'
 function Header() {
-    
-   
+    const { data: session } = useSession();
+
     
     return (
     <div className='sticky top-0 z-50 shadow-md'>
@@ -26,8 +26,10 @@ function Header() {
              </div>
                  {/* Right Items */}
             <div className='hidden lg:flex items-center mx-6 md:gap-x-3 lg:gap-x-6 md:flex-shrink lg:flex-shrink-0  text-white whitespace-nowrap'>
-                <div className='link pb-1'>
-                    <p className=' text-xs'>Hello, Sign In</p>
+                <div onClick={() =>!session ? signIn() : signOut()} className='link pb-1'>
+                    <p className=' text-xs'>
+                        {session ? `Hello, ${session.user.name}`:'Hello,Sign In' }
+                        </p>
                     <p className=' font-semibold'>Account & Lists</p>
                 </div>
                 <div className='link pb-1 '>

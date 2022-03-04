@@ -6,7 +6,7 @@ import Currency from 'react-currency-formatter';
 function Product({id,title,price,description,category,image,rating}) {
     
   return (
-    <div className='relative flex flex-col m-5 bg-white z-30 p-10 text-gray-900 cursor-pointer'>
+    <div className='relative flex flex-col m-5 bg-white z-30 p-10 text-gray-900 cursor-pointer rounded-md'>
     <p className='absolute top-0 right-0 text-gray-400 mr-2 '>{category}</p>
     <Image src={image} height={200} width={200} objectFit='contain' />
     <h4 className=' text-base font-semibold mt-2 line-clamp-3'>{title}</h4>
