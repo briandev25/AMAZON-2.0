@@ -3,16 +3,17 @@ import React from 'react'
 import ThemeChangeButton from './ThemeChangeButton'
 import { MenuIcon,SearchIcon,ShoppingCartIcon,ChevronDownIcon } from '@heroicons/react/outline'
 import { signIn,signOut,useSession} from 'next-auth/react'
+import { useRouter } from 'next/router'
 function Header() {
     const { data: session } = useSession();
-
+    const router = useRouter();
     
     return (
     <div className='sticky top-0 z-50 shadow-md'>
          {/* Top Nav */}
         <div className='flex flex-grow items-center bg-amazon_blue py-2 w-full overflow-x-hidden'>
                       {/* Logo */}
-              <div className='relative w-40  h-10 flex-shrink-0 mx-2 mt-3 cursor-pointer flex flex-grow sm:flex-grow-0'>
+              <div onClick={() =>router.push('/')} className='relative w-40  h-10 flex-shrink-0 mx-2 mt-3 cursor-pointer flex flex-grow sm:flex-grow-0'>
                   <Image alt='' src="https://links.papareact.com/f90" layout='fill' objectFit='contain'  />
               </div>
                     {/* Search */}
@@ -36,7 +37,7 @@ function Header() {
                     <p className=' text-xs'>Returns</p>
                     <p className=' font-semibold'>& Orders</p>
                 </div>
-                <div className='link border-none relative'>
+                <div onClick={() =>router.push('checkout')} className='link border-none relative'>
                     <ShoppingCartIcon className='h-10' />
                     <div className=' text-xs font-bold absolute h-4 w-4 top-0 right-0 flex items-center justify-center bg-yellow-400 p-3 rounded-full text-black'>0</div>
                 </div>
